@@ -5,6 +5,9 @@ import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
 public class AID {
+	public static final String myname = "root";
+	public static final String mypassword = "root@123";
+	public static final String url = "jdbc:mysql://localhost:3306/library";
 	
     // Method to convert java.sql.Date to String
     public static String dateToString(Date date) {

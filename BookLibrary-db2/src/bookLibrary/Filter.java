@@ -37,10 +37,6 @@ public class Filter extends JFrame {
 	private JTable table;
 	private JTextField txtf;
 	
-	private static final String myname = "root";
-	private static final String mypassword = "root@123";
-	private static final String url = "jdbc:mysql://localhost:3306/library";
-	
 	/**
 	 * Launch the application.
 	 */
@@ -90,7 +86,7 @@ public class Filter extends JFrame {
 				DefaultTableModel tblmode = (DefaultTableModel)table.getModel();
 				tblmode.setRowCount(0);
 				
-				try (Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try (Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					String query = "SELECT * FROM book";
 					String data = txtf.getText(); 
 					int year = 0;

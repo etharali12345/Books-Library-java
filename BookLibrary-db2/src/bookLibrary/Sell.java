@@ -37,10 +37,6 @@ public class Sell extends JFrame {
 	private JTextField memidf;
 	private JTextField selldf;
 	private JTextField textField_6;
-	
-	private static final String myname = "root";
-	private static final String mypassword = "root@123";
-	private static final String url = "jdbc:mysql://localhost:3306/library";
 	private JTextField qf;
 
 
@@ -90,7 +86,7 @@ public class Sell extends JFrame {
 				DefaultTableModel tblmode = (DefaultTableModel)table.getModel();
 				tblmode.setRowCount(0);
 				String query;
-				try (Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try (Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					query = "SELECT s.id AS sell_id, bk.id AS book_id, bk.title, mem.id AS member_id, mem.first_name, mem.last_name, s.sell_date, s.quantity " +
 						    "FROM sell s " +
 						    "JOIN book bk ON s.book_id = bk.id " +
@@ -209,7 +205,7 @@ public class Sell extends JFrame {
 		addbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
-				try(Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try(Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					String query;
 					int i;
 					

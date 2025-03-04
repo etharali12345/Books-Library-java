@@ -30,10 +30,6 @@ public class Login extends JFrame {
 	private JTextField usernameField;
 	private JPasswordField passwordField_1;
 	
-	private static final String myname = "root";
-	private static final String mypassword = "root@123";
-	private static final String url = "jdbc:mysql://localhost:3306/library";
-	
 	public Login() {
 		setResizable(false);
 		setAlwaysOnTop(true);
@@ -79,7 +75,7 @@ public class Login extends JFrame {
 
 				String query = "SELECT username FROM admin WHERE username = ? AND password = ?";
 
-				try (Connection con = DriverManager.getConnection(url, myname, mypassword);
+				try (Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword);
 				     PreparedStatement pstmt = con.prepareStatement(query)) {
 				     
 				    // Set parameters for the query

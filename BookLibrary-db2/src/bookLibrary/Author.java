@@ -40,9 +40,6 @@ public class Author extends JFrame {
 	private JTextField birthf;
 	private JTextField textField_6;
 	private int selectedId;
-	private static final String myname = "root";
-	private static final String mypassword = "root@123";
-	private static final String url = "jdbc:mysql://localhost:3306/library";
 	private JTextField searchf;
 
 	/**
@@ -118,7 +115,7 @@ public class Author extends JFrame {
 		JButton displaybtn = new JButton("Dispaly ");
 		displaybtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try (Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try (Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					DefaultTableModel tblmode = (DefaultTableModel)table.getModel();
 					tblmode.setRowCount(0);
 					String query;
@@ -308,7 +305,7 @@ public class Author extends JFrame {
 		JButton addbtn = new JButton("ADD");
 		addbtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try(Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try(Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					String query;
 					int i;
 					String first = firstf.getText();
@@ -355,7 +352,7 @@ public class Author extends JFrame {
 		JButton updatebtn = new JButton("UPDATE");
 		updatebtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {				
-				try(Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try(Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					String query;
 					int i;
 					String first = firstf.getText();
@@ -407,7 +404,7 @@ public class Author extends JFrame {
 		JButton deletebtn = new JButton("DELETE");
 		deletebtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				try(Connection con = DriverManager.getConnection(url, myname, mypassword)) {
+				try(Connection con = DriverManager.getConnection(AID.url, AID.myname, AID.mypassword)) {
 					String query;
 					int i;
 					query = "DELETE FROM author WHERE id = ? ";
